@@ -2,6 +2,7 @@ import Quiz from "./Quiz";
 import { jsQuizz } from "./Constants";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Home";
+import Create from "./create";
 import "./index.scss";
 
 function App() {
@@ -12,8 +13,12 @@ function App() {
     },
     {
       path : '/Quiz',
-      element : <Quiz  questions={jsQuizz.questions}/>
+      element : <Quiz/>
     },
+    {
+      path : '/create',
+      element : <Create />
+    }
   ]) 
 
  

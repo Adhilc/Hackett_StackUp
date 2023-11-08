@@ -1,9 +1,23 @@
+import {initializeApp} from "firebase/app";
+import { addDoc, collection, getFirestore } from "firebase/firestore/lite";
 
-export const jsQuizz = 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAn6PTJqvr6yng3QpBN9-y5rmrmyISOOmQ",
+  authDomain: "my-quiz-ae1ed.firebaseapp.com",
+  projectId: "my-quiz-ae1ed",
+  storageBucket: "my-quiz-ae1ed.appspot.com",
+  messagingSenderId: "19829245690",
+  appId: "1:19829245690:web:1aa2f647ccd3230efdeb43",
+  measurementId: "G-E11E4K2NBK"
+};
+
+export const Firebase = initializeApp(firebaseConfig);
+
+export const db = getFirestore(Firebase);
 
 
-
-{
+export const jsQuizz = {
     questions: [
       {
         question:
@@ -56,8 +70,17 @@ export const jsQuizz =
   }
   ;
 
-  export const resultInitalState = {
-    score: 0,
-    correctAnswers: 0,
-    wrongAnswers: 0
-  };
+
+
+
+jsQuizz.questions.forEach(async (question) => {
+    const prodtAdd = await addDoc(collection(db,"Questions"),{
+        question:question.question,
+        choices:question.choices,
+        correctAnswer: question.correctAnswer
+    })
+
+    console.log(prodtAdd)
+})
+
+console.log("completed")

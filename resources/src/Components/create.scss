@@ -1,18 +1,33 @@
-.container h1{
-    font-size: 32px;
-    font-weight: 500;
-    text-align: center;
-
-   
+.container{
+    width: 500px;
+    background-color: #ffff;
+    border-radius: 4px;
+    margin-top: 300px;
+    padding: 30px 60px;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 8px 10px #888888;
+    position: relative;
 }
 
-.start{
+.field{
+
+    border: 1px solid #000000;
+    border-radius: 16px;
+    padding: 11px;
+    margin-top: 15px;
+    cursor: pointer;
+    width: 100%;
+
+
+}
+
+.btns{
     display: flex;
     column-gap: 40px;
     align-items: flex-start;
 }
 
-.button-start{
+.button-repeate{
     background-color: #000000;
     color: #ffffff;
     border: none;
@@ -25,10 +40,9 @@
     font-size: 18px;
     cursor: pointer;
     
-
 }
 
-.button-create{
+.button-done{
     background-color: #000000;
     color: #ffffff;
     border: none;
@@ -40,17 +54,4 @@
     border-radius: 9px;
     font-size: 18px;
     cursor: pointer;
-}
-
-
-.field{
-
-    border: 1px solid #000000;
-    border-radius: 16px;
-    padding: 11px;
-    margin-top: 15px;
-    cursor: pointer;
-    width: 100%;
-
-
 }

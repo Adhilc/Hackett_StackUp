@@ -1,10 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Quiz.scss";
 import Timer from "./Timer";
 import { resultInitalState } from "./Constants";
 import "./index.scss";
+import { collection, getDocs } from "firebase/firestore/lite";
+import { db } from "./Firebase";
 
-const Quiz = ({questions}) => {
+const Quiz = () => {
+
+    const [loading, setLoading] = useState(true);
+    const [questions, setQuestions] = useState([])
+
+    const fetchQuestions = async () => {
+        const questions = await getDocs(collection(db, "Questions"));
+        console.log(questions.docs[0].data())
+        setQuestions(questions.docs.map((doc) => doc.data()))
+        setLoading(false)
+    }
+
+    useEffect(() => {
+        fetchQuestions()
+    }, [])
 
 
     const [questionNo,setQuestionNo] = useState(0);
@@ -13,7 +29,7 @@ const Quiz = ({questions}) => {
     const [answer,setAnswer] = useState(null);
     const [showResult,setShowResult] =  useState(false);
     const [showTimer,setShowTimer] = useState(true);
-    const {question,choices,correctAnswer} = questions[questionNo];
+    
 
     const onPress = (answer,index)=>{
         setAnswerIndex(index);
@@ -62,6 +78,12 @@ const Quiz = ({questions}) => {
         setAnswer(false);
         onNext(false);
     }
+
+    if(loading){
+        return <div>Loading...</div>
+    }
+
+    const {question,choices,correctAnswer} = questions[questionNo];
 
     return (
         <div className="container">
