@@ -23,7 +23,7 @@ export default function Home(){
   };
    // const navigate = useNavigate()
 
-   const doSomething = () =>{
+  /* const doSomething = () =>{
 
        const parsedData = mySchema.safeParse(message)
     
@@ -33,7 +33,7 @@ export default function Home(){
                 console.error(parsedData.error)
                 return
             }
-   }
+   }*/
 
 
     

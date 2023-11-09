@@ -5,10 +5,12 @@ import { resultInitalState } from "./Constants";
 import "./index.scss";
 import { collection, getDocs } from "firebase/firestore/lite";
 import { db } from "./Firebase";
+import { useNavigate } from "react-router-dom";
 
 const Quiz = () => {
 
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
     const [questions, setQuestions] = useState([])
 
     const fetchQuestions = async () => {
@@ -125,7 +127,8 @@ const Quiz = () => {
                 <p>
                     Wrong Answers:<span>{result.wrongAnswers}</span>
                 </p>
-                <button onClick={onTry}>Play again</button>
+                <button className="again" onClick={onTry}>Play again</button>
+                <button className="quit" onClick={()=>{navigate("/")}} >Quit</button>
             </div>
            )}
             
