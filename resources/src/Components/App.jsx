@@ -1,5 +1,5 @@
 import Quiz from "./Quiz";
-import { jsQuizz } from "./Constants";
+//import { jsQuizz } from "./Constants";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Home";
 import Create from "./create";

@@ -50,8 +50,6 @@ export default function create() {
 
         const parsedData = questionSchema.safeParse(questionTemp)
 
-        console.log(question)
-
         if(!parsedData.success){
             console.error(parsedData.error)
             return
@@ -81,22 +79,25 @@ export default function create() {
             choices: tempOptions
         }))
     }
+
   
   
     return (
        
     <div className="container">
+        
         <input  className="field" type="text" name='question' value={question.question} onChange={(e)=> setQuestion(prev => ({
             ...prev,
             question: e.target.value,
         }))} placeholder="Question" /><br></br>
-        <input  className="field" type="text" name='answer' value={question.choices[0]} onChange={(e) => setOptions(0, e.target.value)} placeholder="Answer" /><br></br>
-        <input  className="field" type="text" name='answer' value={question.choices[1]} onChange={(e) => setOptions(1, e.target.value)} placeholder="Answer" /><br></br>
-        <input  className="field" type="text" name='answer' value={question.choices[2]} onChange={(e) => setOptions(2, e.target.value)} placeholder="Answer" /><br></br>
-        <input  className="field" type="text" name='answer' value={question.choices[3]} onChange={(e) => setOptions(3, e.target.value)} placeholder="Answer" /><br></br>
+        <input  className="field" type="text" name='answer' value={question.choices[0]} onChange={(e) => setOptions(0, e.target.value)} placeholder="Correct Answer" /><br></br>
+        <input  className="field" type="text" name='answer' value={question.choices[1]} onChange={(e) => setOptions(1, e.target.value)} placeholder="Options" /><br></br>
+        <input  className="field" type="text" name='answer' value={question.choices[2]} onChange={(e) => setOptions(2, e.target.value)} placeholder="Options" /><br></br>
+        <input  className="field" type="text" name='answer' value={question.choices[3]} onChange={(e) => setOptions(3, e.target.value)} placeholder="Options" /><br></br>
         
         <div className='btns'>
-            <Link className="button-repeate"  to={'/'}>Repeat</Link>
+            <button className="button-repeate" onClick={async () => {await addQuestion() 
+                navigate(0) }}>Repeat</button>
             <button className="button-done"  onClick={async () => {
                 await addQuestion()
                 navigate("/")
