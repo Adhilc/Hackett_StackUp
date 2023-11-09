@@ -3,13 +3,14 @@ import Quiz from "./Quiz";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Home";
 import Create from "./create";
+import Login from "./Login";
 import "./index.scss";
 
 function App() {
   const router = createBrowserRouter([
     {
       path : '/',
-      element : <Home />
+      element : <Login />
     },
     {
       path : '/Quiz',
@@ -18,6 +19,14 @@ function App() {
     {
       path : '/create',
       element : <Create />
+    },
+    {
+      path : '/Login',
+      element : <Login />
+    },
+    {
+      path:'/Home',
+      element:<Home />
     }
   ]) 
 

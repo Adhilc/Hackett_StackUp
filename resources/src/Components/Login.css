@@ -1,0 +1,36 @@
+.container{
+    width: 500px;
+    background-color: #ffff;
+    border-radius: 4px;
+    margin-top: 300px;
+    padding: 30px 60px;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 8px 10px #000000;
+    position: relative;
+}
+
+button{
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 10px 42px;
+    border: none;
+    outline: none;
+    margin-top: 15px;
+    cursor: pointer;
+
+    &:disabled {
+    background-color: #e7e8e9;
+    color: #9c9c9c;
+    cursor: not-allowed;
+
+    }
+}
+.container h1{
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+
+   
+}
