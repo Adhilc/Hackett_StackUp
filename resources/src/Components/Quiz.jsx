@@ -1,17 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Quiz.scss";
 import Timer from "./Timer";
 import { resultInitalState } from "./Constants";
 import "./index.scss";
-import { collection, getDocs } from "firebase/firestore/lite";
+import { addDoc, collection, getDocs } from "firebase/firestore/lite";
 import { db } from "./Firebase";
+import LeaderBoard from "./LeaderBoard";
 import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "./globalContext";
 
 const Quiz = () => {
 
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const [questions, setQuestions] = useState([]);
+    const { name } = useContext(GlobalContext);
+
+
 
     const fetchQuestions = async () => {
         const questions = await getDocs(collection(db, "Questions"));
@@ -22,6 +27,12 @@ const Quiz = () => {
 
     useEffect(() => {
         fetchQuestions()
+    }, [])
+
+    useEffect(() => {
+        if(name.length === 0){
+            navigate("/")
+        }
     }, [])
 
 
@@ -44,7 +55,7 @@ const Quiz = () => {
         }
     }
 
-    const onNext = (finalAnswer)=> {
+    const onNext = async (finalAnswer)=> {
         setAnswerIndex(null);
         setShowTimer(false);
         setResult((prev) =>
@@ -62,7 +73,12 @@ const Quiz = () => {
         if (questionNo !== questions.length - 1){
             setQuestionNo((prev)=> prev + 1);
         }else{
-            setQuestionNo(0);
+            const res = await addDoc(collection(db, "results"), {
+                name,
+                result
+            });
+
+            console.log(res)
             setShowResult(true);
         }
 
@@ -86,9 +102,11 @@ const Quiz = () => {
         setShowScore(true);
         localstorage.setItem("highScores",JSON.stringify(newHighscores));
     }*/
-    
+
 
     const onTry = () => {
+        setQuestionNo(0);
+
         setResult(resultInitalState);
         setShowResult(false);
     };
@@ -103,6 +121,10 @@ const Quiz = () => {
     }
 
     const {question,choices,correctAnswer} = questions[questionNo];
+
+    if(name.length === 1){
+        return null
+    }
 
     return (
         <div className="container">
@@ -146,34 +168,7 @@ const Quiz = () => {
                 </p>
                 <button className="again" onClick={onTry}>Play again</button>
                 <button className="quit" onClick={()=>{navigate("/")}} >Quit</button>
-                //button create and save functio to state 
-               /* <div>
-                    {!showScore && (
-                        <>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Ranking</th>
-                                        <th>Name</th>
-                                        <th>Score</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {highScores.map((highScore,i)=>{
-                                        return (
-                                            <tr key={`${highScore.score}${highScore.name}${i}`}>
-                                                <td>{i+1}</td>
-                                                <td>{highScore.name}</td>
-                                                <td>{highScore.score}</td>
-                                            </tr>
-                                        );
-                                    })}
-                                </tbody>
-                            </table>
-                        </>
-                    ) }
-                </div>*/
-                ----------
+                <button onClick={()=>{navigate("/LeaderBoard")}}>leader board</button>
             </div>
            )}
             

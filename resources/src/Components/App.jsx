@@ -5,6 +5,7 @@ import Home from "./Home";
 import Create from "./create";
 import Login from "./Login";
 import "./index.scss";
+import LeaderBoard from "./LeaderBoard";
 
 function App() {
   const router = createBrowserRouter([
@@ -27,6 +28,9 @@ function App() {
     {
       path:'/Home',
       element:<Home />
+    },{
+      path: "/LeaderBoard",
+      element: <LeaderBoard />
     }
   ]) 
 
