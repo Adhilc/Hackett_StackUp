@@ -1,10 +1,13 @@
 import { collection, getDocs } from 'firebase/firestore/lite'
 import React, { useEffect, useState } from 'react'
 import { db } from './Firebase';
+import { useNavigate } from 'react-router-dom';
+import "./LeaderBoard.css";
 
 export default function LeaderBoard() {
     const [loading, setLoading] = useState(true);
     const [results, setResults] = useState([])
+    const navigate = useNavigate();
 
     async function getResults(){
         const data = await getDocs(collection(db, "results"));
@@ -26,6 +29,7 @@ export default function LeaderBoard() {
     }
   return (
     <div className='container'>
+        <h1>Leaderboard</h1>
             <table>
                 <thead>
                     <tr>
@@ -46,6 +50,9 @@ export default function LeaderBoard() {
                         })}
                     </tbody>
             </table>
+            <button className='end' onClick={()=>{
+                navigate("/")
+            }}>quit</button>
     </div>
   )
 }

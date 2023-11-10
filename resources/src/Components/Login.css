@@ -10,14 +10,24 @@
 
 }
 
+.button-div{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
 .buttons{
-    margin-top: 10px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
     align-items: center;
     background-color: #000000;
     color: #ffffff;
-    border-radius: 4px;
+    border-radius: 6px;
+    width: 40px;
     font-size: 18px;
-    padding: 10px 42px;
+    padding: 10px 38px;
     border: none;
     outline: none;
     cursor: pointer;
@@ -26,9 +36,9 @@
     background-color: #e7e8e9;
     color: #9c9c9c;
     cursor: not-allowed;
-
+    
     }
- }
+}
 .container h1{
     font-size: 32px;
     font-weight: 800;
@@ -36,3 +46,4 @@
 
    
 }
+

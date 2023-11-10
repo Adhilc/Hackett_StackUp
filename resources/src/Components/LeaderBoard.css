@@ -5,8 +5,13 @@
     margin-top: 300px;
     padding: 30px 60px;
     box-sizing: border-box;
-    box-shadow: 10px 10px 8px 10px #888888;
+    box-shadow: 10px 10px 8px 10px #000000;
     position: relative;
+}
+h1{
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
 }
 
 
@@ -16,7 +21,24 @@ table{
     margin: 50px auto 20px;
     border-collapse: collapse;
 
-    tr{
-        border: 1px solid;
-    }
+}
+
+tr{
+    border: 2px solid black;
+}
+
+.end{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    margin-left: 35%;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 6px;
+    width: 40px;
+    font-size: 18px;
+    padding: 10px 38px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }

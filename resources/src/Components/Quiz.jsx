@@ -5,7 +5,6 @@ import { resultInitalState } from "./Constants";
 import "./index.scss";
 import { addDoc, collection, getDocs } from "firebase/firestore/lite";
 import { db } from "./Firebase";
-import LeaderBoard from "./LeaderBoard";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "./globalContext";
 
@@ -37,8 +36,6 @@ const Quiz = () => {
 
 
     const [questionNo,setQuestionNo] = useState(0);
-    //const [highScores,setHighScore] = useState([]);
-    //const [showScore,setShowScore] = useState(false);
     const [answerIndex,setAnswerIndex] = useState(null);
     const [result,setResult] = useState(resultInitalState);
     const [answer,setAnswer] = useState(null);
@@ -87,21 +84,6 @@ const Quiz = () => {
         });
 
     };
-
-   /* useEffect(()=>{
-        setHighScores(JSON.parse(localStorage.getItem('highScore'))||[]);
-    },[])*/
-
-   /* const handleSave = () => {
-        const score = {
-            name,
-            score:result.score,
-        };
-        const newHighScore = [...highScores,score].sort(a,b)=>b.score - a.score);
-        setHighScore(newHighScores);
-        setShowScore(true);
-        localstorage.setItem("highScores",JSON.stringify(newHighscores));
-    }*/
 
 
     const onTry = () => {
@@ -166,9 +148,9 @@ const Quiz = () => {
                 <p>
                     Wrong Answers:<span>{result.wrongAnswers}</span>
                 </p>
-                <button className="again" onClick={onTry}>Play again</button>
-                <button className="quit" onClick={()=>{navigate("/")}} >Quit</button>
-                <button onClick={()=>{navigate("/LeaderBoard")}}>leader board</button>
+                <button className="again" onClick={onTry}>play again</button>
+                <button className="quit" onClick={()=>{navigate("/")}} >quit</button>
+                <button  className="board" onClick={()=>{navigate("/LeaderBoard")}}>leaderboard</button>
             </div>
            )}
             

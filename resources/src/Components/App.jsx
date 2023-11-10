@@ -1,8 +1,7 @@
 import Quiz from "./Quiz";
-//import { jsQuizz } from "./Constants";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Home";
-import Create from "./create";
+import Create from "./Create";
 import Login from "./Login";
 import "./index.scss";
 import LeaderBoard from "./LeaderBoard";
@@ -18,7 +17,7 @@ function App() {
       element : <Quiz/>
     },
     {
-      path : '/create',
+      path : '/Create',
       element : <Create />
     },
     {
@@ -28,7 +27,8 @@ function App() {
     {
       path:'/Home',
       element:<Home />
-    },{
+    },
+    {
       path: "/LeaderBoard",
       element: <LeaderBoard />
     }

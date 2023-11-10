@@ -8,8 +8,10 @@
 
 .start{
     display: flex;
-    column-gap: 70px;
+    justify-content: center;
+    column-gap: 30px;
     align-items: center;
+    margin-top: 10px;
 }
 
 .button-start{
@@ -17,11 +19,13 @@
     color: #ffffff;
     border: none;
     text-decoration: none;
-    padding: 10px 42px;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 36px;
     outline: none;
     margin-top: 35px;
-    margin-right: 70px;
-    border-radius: 9px;
+    margin-right: 50px;
+    border-radius: 6px;
     font-size: 18px;
     cursor: pointer;
     
@@ -33,11 +37,11 @@
     color: #ffffff;
     border: none;
     text-decoration: none;
-    padding: 10px 42px;
+    padding: 10px 28px;
     outline: none;
     margin-top: 35px;
-    margin-right: 70px;
-    border-radius: 9px;
+    margin-right: 5px;
+    border-radius: 6px;
     font-size: 18px;
     cursor: pointer;
 }
