@@ -7,12 +7,12 @@ import image from './brain.jpeg'
 export default function Home(){
 
 
-    const [message, setMessage] = useState('');
+  /*  const [message, setMessage] = useState('');
 
   const handleChange = event => {
     setMessage(event.target.value);
     
-  };
+  };*/
 
     return (
         <form>

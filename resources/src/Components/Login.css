@@ -7,9 +7,12 @@
     box-sizing: border-box;
     box-shadow: 10px 10px 8px 10px #000000;
     position: relative;
+
 }
 
-button{
+.buttons{
+    margin-top: 10px;
+    align-items: center;
     background-color: #000000;
     color: #ffffff;
     border-radius: 4px;
@@ -17,7 +20,6 @@ button{
     padding: 10px 42px;
     border: none;
     outline: none;
-    margin-top: 15px;
     cursor: pointer;
 
     &:disabled {
@@ -26,10 +28,10 @@ button{
     cursor: not-allowed;
 
     }
-}
+ }
 .container h1{
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 800;
     text-align: center;
 
    

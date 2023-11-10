@@ -11,7 +11,7 @@ const Quiz = () => {
 
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-    const [questions, setQuestions] = useState([])
+    const [questions, setQuestions] = useState([]);
 
     const fetchQuestions = async () => {
         const questions = await getDocs(collection(db, "Questions"));
@@ -26,6 +26,8 @@ const Quiz = () => {
 
 
     const [questionNo,setQuestionNo] = useState(0);
+    //const [highScores,setHighScore] = useState([]);
+    //const [showScore,setShowScore] = useState(false);
     const [answerIndex,setAnswerIndex] = useState(null);
     const [result,setResult] = useState(resultInitalState);
     const [answer,setAnswer] = useState(null);
@@ -69,6 +71,21 @@ const Quiz = () => {
         });
 
     };
+
+   /* useEffect(()=>{
+        setHighScores(JSON.parse(localStorage.getItem('highScore'))||[]);
+    },[])*/
+
+   /* const handleSave = () => {
+        const score = {
+            name,
+            score:result.score,
+        };
+        const newHighScore = [...highScores,score].sort(a,b)=>b.score - a.score);
+        setHighScore(newHighScores);
+        setShowScore(true);
+        localstorage.setItem("highScores",JSON.stringify(newHighscores));
+    }*/
     
 
     const onTry = () => {
@@ -129,6 +146,34 @@ const Quiz = () => {
                 </p>
                 <button className="again" onClick={onTry}>Play again</button>
                 <button className="quit" onClick={()=>{navigate("/")}} >Quit</button>
+                //button create and save functio to state 
+               /* <div>
+                    {!showScore && (
+                        <>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Ranking</th>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {highScores.map((highScore,i)=>{
+                                        return (
+                                            <tr key={`${highScore.score}${highScore.name}${i}`}>
+                                                <td>{i+1}</td>
+                                                <td>{highScore.name}</td>
+                                                <td>{highScore.score}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </>
+                    ) }
+                </div>*/
+                ----------
             </div>
            )}
             

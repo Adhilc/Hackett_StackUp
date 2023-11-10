@@ -11,9 +11,9 @@ export default function Login() {
     <div className='container'>
          <h1>Quiz.Guru</h1>
          <img src={image} style={{ width: '400px', }}/>
-        <form>
-            <input  className="field" type="text"name="name" onChange={e=>setName(e.target.value)} placeholder="Name" /><br></br>
-            <button disabled={name.length < 1} onClick={()=>navigate("/Home")}>Submit</button>
+        <form className='form'>
+            <input  className="field" type="text"name="name" onChange={e=>setName(e.target.value)} placeholder="Name" />
+            <button className='buttons' disabled={name.length < 1} onClick={()=>navigate("/Home")}>submit</button>
         </form>
     </div>
   )
