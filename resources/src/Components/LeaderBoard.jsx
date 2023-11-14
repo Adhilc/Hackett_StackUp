@@ -9,6 +9,9 @@ export default function LeaderBoard() {
     const [results, setResults] = useState([])
     const navigate = useNavigate();
 
+
+    // getting results from firebase
+
     async function getResults(){
         const data = await getDocs(collection(db, "results"));
         setResults(data.docs.map(doc => doc.data()))
